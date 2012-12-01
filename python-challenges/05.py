@@ -18,3 +18,5 @@ for row in banner:
 
 for line in gfx:
     print row
+
+# next url: http://www.pythonchallenge.com/pc/def/channel.html
