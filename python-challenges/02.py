@@ -19,4 +19,3 @@ http://www.pythonchallenge.com/pc/def/map.html
 print url.translate(translate)
 
 # next url: http://www.pythonchallenge.com/pc/def/ocr.html
-
