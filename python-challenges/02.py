@@ -1,21 +1,16 @@
-from string import maketrans 
+url = "http://www.pythonchallenge.com/pc/def/ocr.html"
 
-message = """
-g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj.
-"""
+def recovery_information(url):
+    import urllib    
+    page = urllib.urlopen(url).read()
+    message = page[page.index("%"):]
+    return "".join(message)
 
-instring = "abcdefghijklmnopqrstuvwxyz"
-outstring = "cdefghijklmnopqrstuvwxyzab"
+import re
 
-translate = maketrans(instring, outstring)
+ocr = recovery_information(url)
+pattern = re.compile("[a-zA-Z]+")
+message =  pattern.findall(ocr)
+print "".join(message)
 
-print message.translate(translate)
-
-
-url = """
-http://www.pythonchallenge.com/pc/def/map.html
-"""
-
-print url.translate(translate)
-
-# next url: http://www.pythonchallenge.com/pc/def/ocr.html
+# next url: http://www.pythonchallenge.com/pc/def/equality.html

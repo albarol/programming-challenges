@@ -1,16 +1,20 @@
-url = "http://www.pythonchallenge.com/pc/def/ocr.html"
-
-def recovery_information(url):
-    import urllib    
+def retrieve_data(url):
+    import urllib
     page = urllib.urlopen(url).read()
-    message = page[page.index("%"):]
+    start_index = page.index("<!--")
+    end_index = page.index("-->")
+    message = page[start_index:end_index]
     return "".join(message)
 
 import re
 
-ocr = recovery_information(url)
-pattern = re.compile("[a-zA-Z]+")
-message =  pattern.findall(ocr)
-print "".join(message)
+url = """
+http://www.pythonchallenge.com/pc/def/equality.html
+"""
 
-# next url: http://www.pythonchallenge.com/pc/def/equality.html
+encoded_message = retrieve_data(url)
+message = "".join(re.findall("[^A-Z][A-Z]{3}([a-z])[A-Z]{3}[^A-Z]", encoded_message))
+
+print message
+
+# next url: http://www.pythonchallenge.com/pc/def/linkedlist.php
