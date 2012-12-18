@@ -1,11 +1,13 @@
+# Match any pair of words separated by a single space, that is, first and last names.
+
 import re
 
 names = """
 Aamir Aaron
-Abbey Abbie
-Abbot Abbott
-Abby Abdel
-Abdul Abdulkarim
+Abbey, Abbie
+Abbot, Abbott
+Abby, Abdel
+Abdul, Abdulkarim
 Abdullah Abe
 Abel Abelard
 Abner Abraham
@@ -22,8 +24,15 @@ Adrien Agamemnon
 Aguinaldo Agamemnon
 """
 
-pattern = re.compile("[a-zA-Z]+\s[a-zA-Z]+")
-result = map(lambda x: "FirstName: " + x.split(" ")[0] + " LastName: " + x.split(" ")[1], pattern.findall(names))
+def get_complete_name(name):
+    complete_name = name.split(" ")
+    return "First: %s - Last: %s" % (complete_name[0], complete_name[1])
 
+pattern = re.compile("[a-zA-Z]+\s[a-zA-Z]+\n")
+result = map(lambda x: get_complete_name(x), pattern.findall(names))
 
-print "\r\n".join(result)
+print "******************"
+print "*     NAMES      *"
+print "******************"
+
+print "\r".join(result)

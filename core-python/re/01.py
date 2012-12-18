@@ -1,3 +1,5 @@
+# Recognize the following strings: “bat,” “bit,” “but,” “hat,” “hit,” or “hut.”
+
 import re
 
 words = """
