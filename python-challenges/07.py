@@ -12,12 +12,10 @@ def get_letter(pixels, index):
 
 message = ['']
 
-index = 0
-while index < len(pixels):
+for i in range(0, len(pixels), PIXEL_SIZE):
     letter = get_letter(pixels, i)
     if letter > 0:
         message.append(chr(letter))
-    index = index + PIXEL_SIZE
 
 print "".join(message)
 
