@@ -13,7 +13,6 @@ rua novato novo, 8157 - Londrina - PR
 av alvares camarao, 1 - Palmas - TO
 """
 
-
 pattern = re.compile("([\w\s]+),\s{1}([0-9]+)\s-\s([\w\s]+)\s-\s([a-zA-Z]{2})")
 result = map(lambda address: get_complete_address(address), pattern.findall(addresses))
 
@@ -22,6 +21,3 @@ print "*   ADDRESSES    *"
 print "******************"
 
 print "\r\n".join(result)
-
-
-
