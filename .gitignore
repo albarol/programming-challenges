@@ -1,4 +1,8 @@
+# Projects
+*.sublime-workspace
 
+
+# Output files
 out.txt
 *.pyc
 *.pyo
